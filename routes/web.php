@@ -17,14 +17,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pizza', function(){
+Route::get('/pizzas', function(){
     $data = [
         'pizzas'=>[
-            'Mart',
-            'Anthony',
-            'Salazar',
-            'M'
-        ]
+            ['type' => 'hawaiian', 'base'=>'cheesy crust'],
+            ['type' => 'volcano', 'base'=>'garlic crust'],
+            ['type' => 'veg supreme', 'base'=>'thin & crispy'],
+        ],
+        'name'=>request('name'),
+        'age'=>request('age')
     ];
     return view('pizzas', $data);
+});
+
+Route::get('/pizzas/{id}', function($id){
+    return view('details', ['id'=>$id]);
 });
