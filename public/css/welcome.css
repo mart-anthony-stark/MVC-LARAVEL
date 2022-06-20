@@ -1,0 +1,7 @@
+main {
+    min-height: 100vh;
+    background: url("../img/welcome-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: aliceblue;
+}
