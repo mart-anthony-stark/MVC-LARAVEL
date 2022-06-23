@@ -7,6 +7,9 @@ use App\Models\Pizza;
 
 class PizzaController extends Controller
 {
+    /**
+     * GET all resource
+     */
     public function index(){
         $pizzas = Pizza::all();
         // $pizzas = Pizza::orderBy('name', 'asc    ')->get();
@@ -15,15 +18,24 @@ class PizzaController extends Controller
         return view('pizzas.index', ['pizzas'=>$pizzas]);
     }
 
+    /**
+     * GET one resource
+     */
     public function show($id){
         $pizza = Pizza::findOrFail($id);
         return view('pizzas.show', ['pizza'=>$pizza]);
     }
 
+    /**
+     * GET (create form) view
+     */
     public function create(){
         return view('pizzas.create');
     }
 
+    /**
+     * POST (create) resource
+     */
     public function store(){
         $pizza = new Pizza();
         $pizza->name = request('name');
@@ -34,5 +46,14 @@ class PizzaController extends Controller
         $pizza->save();
 
         return redirect('/pizzas')->with('msg', 'Order placed successfully!');
+    }
+
+    /**
+     * DELETE single resource
+     */
+    public function destroy($id){
+        $pizza = Pizza::findOrFail($id);
+        $pizza->delete();
+        return redirect('/pizzas')->with('msg','Order deleted');
     }
 }
