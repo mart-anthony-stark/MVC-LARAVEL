@@ -13,10 +13,11 @@ use App\Http\Controllers\PizzaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// Pizzas resource
 Route::get('/', function () {
     return redirect('/pizzas');
 });
 Route::get('/pizzas', [PizzaController::class,'index']);
 Route::get('/pizzas/create', [PizzaController::class,'create']);
 Route::get('/pizzas/{id}', [PizzaController::class,'show']);
+Route::post('/pizzas', [PizzaController::class,'store']);
