@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    {{ $id }}
+    {{ $pizza->type }}
+    {{ $pizza->name }}
+    {{ $pizza->base }}
+    {{ $pizza->price }}
 @endsection
