@@ -16,7 +16,8 @@ class PizzaController extends Controller
     }
 
     public function show($id){
-        return view('pizzas.show', ['id'=>$id]);
+        $pizza = Pizza::where('id', $id)->take(1)->first();
+        return view('pizzas.show', ['pizza'=>$pizza]);
     }
 
     public function create(){
