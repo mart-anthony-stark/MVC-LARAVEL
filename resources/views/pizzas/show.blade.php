@@ -12,4 +12,9 @@
             <li>{{ $topping }}</li>
         @endforeach
     </ul>
+    <form action="/pizzas/{{ $pizza->id }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Complete Order">
+    </form>
 @endsection
