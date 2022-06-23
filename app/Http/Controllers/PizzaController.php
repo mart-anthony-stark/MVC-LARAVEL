@@ -16,8 +16,7 @@ class PizzaController extends Controller
     }
 
     public function show($id){
-        $pizza = Pizza::find($id);
-        if(!$pizza) return redirect('/pizzas');
+        $pizza = Pizza::findOrFail($id);
         return view('pizzas.show', ['pizza'=>$pizza]);
     }
 

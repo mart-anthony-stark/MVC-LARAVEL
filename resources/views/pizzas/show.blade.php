@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    {{ $pizza->type }}
-    {{ $pizza->name }}
-    {{ $pizza->base }}
-    {{ $pizza->price }}
+    <h1>{{ $pizza->name }}</h1>
+    <p class="type">{{ $pizza->type }}</p>
+    <p class="base">{{ $pizza->base }}</p>
+    <p class="price">{{ $pizza->price }}</p>
 @endsection
