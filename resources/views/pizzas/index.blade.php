@@ -9,7 +9,7 @@
         <h1>Pizzas</h1>
         <a href="{{ route('pizzas.create') }}">ADD NEW PIZZA</a>
         @foreach ($pizzas as $pizza)
-            <a href="/pizzas/{{ $pizza->id }}">
+            <a href="{{ route('pizzas.show', $pizza->id) }}">
                 <h3> {{ $pizza->type }} - {{ $pizza->base }} - {{ $pizza->name }} - Php {{ $pizza->price }}</h3>
             </a>
         @endforeach
